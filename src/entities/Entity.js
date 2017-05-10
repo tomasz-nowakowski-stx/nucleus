@@ -13,6 +13,7 @@
 
 var Verbose = require('../Verbose');
 var hash = require('json-hash');
+var marked = require('marked');
 
 var Entity = function(raw) {
   this.raw = raw;
@@ -133,7 +134,7 @@ Entity.prototype.getModifiers = function () {
       if (value.indexOf(' ') >= 0) {
         modifier = {
           class: value.substr(0, value.indexOf(' ')),
-          description: value.substr(value.indexOf(' ') + 1),
+          description: marked(value.substr(value.indexOf(' ') + 1)),
         };
       } else {
         modifier = {

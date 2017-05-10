@@ -11,6 +11,7 @@
 'use strict';
 
 var Entity = require('./Entity');
+var marked = require('marked');
 
 var Mixin = function(raw) {
   // Call parent constructor
@@ -82,14 +83,13 @@ Mixin.prototype.getParameters = function() {
  * @return {object}
  */
 Mixin.prototype.getParameter = function( parameterString ) {
-  // Remove line breaks from the current annotation string, in order to
-  // not break the regexp, since . does not match line breaks.
-  parameterString = parameterString.replace(/\n/g, " ");
+  // Finds first space or line breaks to separate name from description
+  parameterString = parameterString.replace(/\n|\s/,"@@@");
+  var param = parameterString.split("@@@");
 
-  var param = parameterString.match(/^([^\s]+)(.*)$/);
   return {
-    name: param[1].trim(),
-    description: param[2].trim()
+    name: param[0].trim(),
+    description: marked(param[1].trim())
   };
 };
 

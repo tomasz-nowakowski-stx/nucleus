@@ -98,7 +98,7 @@ mixin component(component)
               div.SG-gr-3
                 div.SG-table__cell= val.class
               div.SG-gr-9
-                div.SG-table__cell= val.description || ''
+                div.SG-table__cell !{val.description || '' }
 
     -if (component.markup)
 
