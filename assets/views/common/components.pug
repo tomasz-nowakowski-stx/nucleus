@@ -68,7 +68,7 @@ mixin component(component)
 
     div.SG-row
       div.SG-gr-12.SG-nogutter
-        div.SG-p.SG-component__preview--description #{component.description}
+        div.SG-p.SG-component__preview--description !{component.description}
 
     if (component.flags && component.flags.fullWidth)
       div.SG-row.SG-row-full

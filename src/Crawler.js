@@ -14,6 +14,7 @@
 var Verbose = require('./Verbose');
 var postcss = require('postcss');
 var syntax = require('postcss-scss');
+var marked = require('marked');
 
 var Crawler = {};
 
@@ -73,7 +74,8 @@ Crawler.parseDocBlock = function ( docBlock ) {
   var lines = this.removeCommentChars(docBlock).split('\n');
 
   // Extract and remove the description
-  annotations.description = this.getDescription(lines);
+  var descr =  this.getDescription(lines);
+  annotations.description = descr ? marked(descr) : descr;
 
   // Iterate through all the lines and parse the annotations
   var annotation;
@@ -161,7 +163,7 @@ Crawler.isAnnotationLine = function (line) {
 Crawler.getDescription = function (docBlockLines) {
   var descriptionLines = [];
   var line = docBlockLines.shift();
-  while(line) {
+  while(line != null) {
     if(this.isAnnotationLine(line)) break;
     descriptionLines.push(line);
     line = docBlockLines.shift();
@@ -171,7 +173,7 @@ Crawler.getDescription = function (docBlockLines) {
   docBlockLines.unshift(line);
 
   if(descriptionLines.length === 0) return false;
-  return descriptionLines.join(' ').trim();
+  return descriptionLines.join('\n').trim();
 };
 
 /**

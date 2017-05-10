@@ -61,4 +61,4 @@ mixin mixin-parameters(parameters)
         div.SG-table__cell.SG-txt-center
           | !{parameters[p].optional ? '&#10004;' : '' }
       div.SG-gr-8
-        div.SG-table__cell #{parameters[p].description}
+        div.SG-table__cell !{parameters[p].description}

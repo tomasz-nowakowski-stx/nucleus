@@ -34,7 +34,7 @@ mixin color(color)
           if (color.deprecated)
             span.SG-pill deprecated
           else
-            | #{color.description}
+            | !{color.description}
     div.SG-gr-2
       div.SG-table__cell
         span.SG-a(data-d-copy, data-clipboard-text=color.name) #{color.name}
