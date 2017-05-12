@@ -11,7 +11,7 @@
 'use strict';
 
 var Entity = require('./Entity');
-var marked = require('marked');
+var markdown = require('../Markdown');
 
 var Mixin = function(raw) {
   // Call parent constructor
@@ -89,7 +89,7 @@ Mixin.prototype.getParameter = function( parameterString ) {
 
   return {
     name: param[0].trim(),
-    description: marked(param[1].trim())
+    description: markdown.render(param[1].trim())
   };
 };
 

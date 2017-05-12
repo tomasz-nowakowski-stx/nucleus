@@ -142,10 +142,55 @@
   font-style: italic;
 }
 
+.SG-del {
+  text-decoration: line-through;
+}
+
 // Move anchors a bit up to create
 // some space to the page border
 .SG-anchor {
   margin-top: -20px;
   padding-top: 20px;
   display: inline-block;
+}
+
+.SG-hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid $color--light-gray;
+}
+
+.SG-ul,
+.SG-ol {
+  padding-left: 40px;
+  margin: 0 0 1.5em;
+
+  & & {
+    margin: 0;
+  }
+}
+
+.SG-ul {
+  list-style-type: disc;
+}
+
+.SG-ul .SG-ul,
+.SG-ol .SG-ul {
+  list-style-type: circle;
+}
+
+.SG-ol .SG-ol .SG-ul,
+.SG-ol .SG-ul .SG-ul,
+.SG-ul .SG-ol .SG-ul,
+.SG-ul .SG-ul .SG-ul {
+  list-style-type: square;
+}
+
+.SG-ol {
+  list-style-type: decimal;
+}
+
+.SG-li {
+  display: list-item;
 }

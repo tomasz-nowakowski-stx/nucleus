@@ -4,6 +4,7 @@
  *
  * With contributions from: -
  *  - Ryan Potter (www.ryanpotter.co.nz)
+ *  - Tomasz Nowakowski
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
@@ -12,9 +13,9 @@
 'use strict';
 
 var Verbose = require('./Verbose');
+var markdown = require('./Markdown');
 var postcss = require('postcss');
 var syntax = require('postcss-scss');
-var marked = require('marked');
 
 var Crawler = {};
 
@@ -75,7 +76,7 @@ Crawler.parseDocBlock = function ( docBlock ) {
 
   // Extract and remove the description
   var descr =  this.getDescription(lines);
-  annotations.description = descr ? marked(descr) : descr;
+  annotations.description = descr ? markdown.render(descr) : descr;
 
   // Iterate through all the lines and parse the annotations
   var annotation;

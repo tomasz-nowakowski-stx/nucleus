@@ -37,8 +37,17 @@
   }
 }
 
-.SG-code__title{
-    display: none;
+span.SG-code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.SG-code__title {
+  display: none;
 }
 
 /**
