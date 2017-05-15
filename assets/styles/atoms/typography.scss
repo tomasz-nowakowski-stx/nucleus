@@ -194,3 +194,73 @@
 .SG-li {
   display: list-item;
 }
+
+.SG-blockquote {
+  padding: 10px 20px;
+  margin: 0 0 1.5em;
+  border-left: 5px solid $color--light-gray;
+  color: #999;
+}
+
+// based on bootstrap
+.SG-mtable {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.5em;
+  display: table;
+
+  // Cells
+  > .SG-mthead,
+  > .SG-mtbody {
+    > .SG-mtr {
+      > .SG-mth,
+      > .SG-mtd {
+        padding: 10px;
+        line-height: normal;
+        vertical-align: top;
+        border-top: 1px solid $color--light-gray;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > .SG-mthead > .SG-mtr > .SG-mth {
+    vertical-align: bottom;
+    border-bottom: 2px solid $color--light-gray;
+  }
+  // Remove top border from thead by default
+  > .SG-mthead:first-child {
+    > .SG-mtr:first-child {
+      > .SG-mth,
+      > .SG-mtd {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > .SG-mtbody + .SG-mtbody {
+    border-top: 2px solid $color--light-gray;
+  }
+  .SG-mtbody > .SG-mtr:nth-child(odd) {
+    > .SG-mth,
+    > .SG-mtd {
+      background-color: $color--whitesmoke;
+    }
+  }
+}
+.SG-mthead { display: table-header-group; }
+.SG-mtbody { display: table-row-group; }
+.SG-mtr { display: table-row; }
+.SG-mth,
+.SG-mtd { display: table-cell; }
+
+.SG-markdown-code {
+  display: block;
+  padding: 8px;
+  margin: 0 0 1.5em;
+  color: $color--dark-gray;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: $color--whitesmoke;
+  border: 1px solid $color--light-gray;
+  border-radius: 4px;
+}
